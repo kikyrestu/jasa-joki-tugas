@@ -1,20 +1,13 @@
 'use client';
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { FaUsers, FaComments, FaStar, FaChartLine } from 'react-icons/fa';
-import { getTestimonials, getChatRooms } from '@/lib/firebase';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 import AdminNav from '@/components/AdminNav';
 import AdminAuth from '@/components/AdminAuth';
-import { useAuth } from '@/context/AuthContext';
 
 export default function AdminPage() {
   const { user, loading } = useAuth();
-  const [stats, setStats] = useState({
-    totalTestimonials: 0,
-    averageRating: 0,
-    activeChats: 0,
-    pendingResponses: 0
-  });
+  const router = useRouter();
 
   // Show loading state
   if (loading) {
@@ -44,117 +37,30 @@ export default function AdminPage() {
             </p>
           </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="glass-card p-6"
+          {/* Quick Links */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div 
+              onClick={() => router.push('/admin/testimonials')}
+              className="glass-card p-6 cursor-pointer hover:scale-105 transition-all duration-300"
             >
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-400">Total Testimoni</p>
-                  <h3 className="text-2xl font-bold text-slate-100 mt-1">
-                    {stats.totalTestimonials}
-                  </h3>
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
-                  <FaUsers className="w-6 h-6" />
-                </div>
-              </div>
-            </motion.div>
+              <h3 className="text-xl font-bold text-slate-100 mb-2">Testimonials</h3>
+              <p className="text-slate-400">Kelola testimoni dari client</p>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="glass-card p-6"
+            <div 
+              onClick={() => router.push('/admin/chat')}
+              className="glass-card p-6 cursor-pointer hover:scale-105 transition-all duration-300"
             >
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-400">Rating Rata-rata</p>
-                  <h3 className="text-2xl font-bold text-slate-100 mt-1">
-                    {stats.averageRating.toFixed(1)}
-                  </h3>
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
-                  <FaStar className="w-6 h-6" />
-                </div>
-              </div>
-            </motion.div>
+              <h3 className="text-xl font-bold text-slate-100 mb-2">Live Chat</h3>
+              <p className="text-slate-400">Kelola percakapan dengan client</p>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="glass-card p-6"
+            <div 
+              className="glass-card p-6 cursor-pointer hover:scale-105 transition-all duration-300"
             >
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-400">Chat Aktif</p>
-                  <h3 className="text-2xl font-bold text-slate-100 mt-1">
-                    {stats.activeChats}
-                  </h3>
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
-                  <FaComments className="w-6 h-6" />
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="glass-card p-6"
-            >
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-400">Perlu Respon</p>
-                  <h3 className="text-2xl font-bold text-slate-100 mt-1">
-                    {stats.pendingResponses}
-                  </h3>
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
-                  <FaChartLine className="w-6 h-6" />
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Quick Actions */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Recent Testimonials */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="glass-card p-6"
-            >
-              <h2 className="text-xl font-bold text-slate-100 mb-4">
-                Testimoni Terbaru
-              </h2>
-              <div className="space-y-4">
-                {/* Will be populated with actual data */}
-                <p className="text-slate-400 text-sm">Loading testimonials...</p>
-              </div>
-            </motion.div>
-
-            {/* Active Chats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="glass-card p-6"
-            >
-              <h2 className="text-xl font-bold text-slate-100 mb-4">
-                Chat Aktif
-              </h2>
-              <div className="space-y-4">
-                {/* Will be populated with actual data */}
-                <p className="text-slate-400 text-sm">Loading active chats...</p>
-              </div>
-            </motion.div>
+              <h3 className="text-xl font-bold text-slate-100 mb-2">Settings</h3>
+              <p className="text-slate-400">Pengaturan website</p>
+            </div>
           </div>
         </div>
       </main>
