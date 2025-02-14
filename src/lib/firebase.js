@@ -40,31 +40,20 @@ let loginAttempts = {};
 export const loginAdmin = async (email, password) => {
   try {
     // Validasi email admin
-    const allowedEmail = process.env.NEXT_PRIVATE_ADMIN_EMAIL;
-    if (email !== allowedEmail) {
-      throw new Error('Unauthorized access attempt');
+    const allowedEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
+    if (!allowedEmail) {
+      console.error('Admin email not configured');
+      throw new Error('Konfigurasi admin tidak valid');
     }
 
-    // Cek jika IP/email sedang dalam cooldown period
-    const attemptKey = email.toLowerCase();
-    const currentAttempt = loginAttempts[attemptKey] || { count: 0, timestamp: 0 };
-    const now = Date.now();
-
-    if (currentAttempt.count >= MAX_LOGIN_ATTEMPTS) {
-      const timeLeft = LOCKOUT_TIME - (now - currentAttempt.timestamp);
-      if (timeLeft > 0) {
-        const minutesLeft = Math.ceil(timeLeft / 60000);
-        throw new Error(`Terlalu banyak percobaan login. Silakan coba lagi dalam ${minutesLeft} menit.`);
-      } else {
-        // Reset jika cooldown sudah selesai
-        delete loginAttempts[attemptKey];
-      }
+    if (email !== allowedEmail) {
+      throw new Error('Email tidak valid');
     }
 
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     
     // Reset login attempts jika berhasil
-    delete loginAttempts[attemptKey];
+    delete loginAttempts[email.toLowerCase()];
     
     // Set session cookie
     document.cookie = `admin_session=${userCredential.user.uid}; path=/; max-age=86400; secure; samesite=strict`;
@@ -82,8 +71,12 @@ export const loginAdmin = async (email, password) => {
       timestamp: Date.now()
     };
 
-    if (error.message === 'Unauthorized access attempt') {
-      throw new Error('Akses tidak diizinkan');
+    if (error.code === 'auth/invalid-email') {
+      throw new Error('Email tidak valid');
+    } else if (error.code === 'auth/user-not-found') {
+      throw new Error('Admin tidak ditemukan');
+    } else if (error.code === 'auth/wrong-password') {
+      throw new Error('Password salah');
     }
     
     // Tampilkan pesan sisa percobaan
