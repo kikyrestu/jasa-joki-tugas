@@ -28,18 +28,18 @@ export function middleware(request) {
   const ip = request.headers.get('x-forwarded-for') || 'unknown';
   const pathname = request.nextUrl.pathname;
 
-  // Izinkan akses ke halaman login admin
-  if (pathname === '/admin/auth') {
-    // Jika sudah login, redirect ke dashboard
-    if (request.cookies.has('admin_session')) {
-      return NextResponse.redirect(new URL('/admin', request.url));
-    }
-    return NextResponse.next();
-  }
-
-  // Proteksi route admin lainnya
+  // Proteksi route admin
   if (pathname.startsWith('/admin')) {
-    // Cek rate limiting hanya untuk attempts ke login dan actions
+    // Izinkan akses ke halaman login admin
+    if (pathname === '/admin/auth') {
+      // Jika sudah login, redirect ke dashboard
+      if (request.cookies.has('admin_session')) {
+        return NextResponse.redirect(new URL('/admin', request.url));
+      }
+      return NextResponse.next();
+    }
+
+    // Cek rate limiting untuk login attempts dan API actions
     if (pathname.includes('/auth') || pathname.includes('/api')) {
       if (isRateLimited(ip)) {
         return new NextResponse('Too Many Requests', {
@@ -54,8 +54,7 @@ export function middleware(request) {
 
     // Redirect ke login jika belum ada session
     if (!request.cookies.has('admin_session')) {
-      const loginUrl = new URL('/admin/auth', request.url);
-      return NextResponse.redirect(loginUrl);
+      return NextResponse.redirect(new URL('/admin/auth', request.url));
     }
   }
 
