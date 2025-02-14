@@ -26,29 +26,36 @@ function isRateLimited(ip) {
 export function middleware(request) {
   // Get IP address dari request headers
   const ip = request.headers.get('x-forwarded-for') || 'unknown';
+  const pathname = request.nextUrl.pathname;
 
-  // Cek rate limiting untuk semua request ke admin
-  if (request.nextUrl.pathname.startsWith('/admin')) {
-    if (isRateLimited(ip)) {
-      return new NextResponse('Too Many Requests', {
-        status: 429,
-        headers: {
-          'Retry-After': '60',
-          'Content-Type': 'text/plain',
-        },
-      });
-    }
-
-    // Redirect ke halaman login jika belum ada session
-    if (!request.cookies.has('admin_session')) {
-      return NextResponse.redirect(new URL('/admin/auth', request.url));
-    }
-  }
-
-  // Jika sudah login dan mencoba akses halaman login, redirect ke dashboard
-  if (request.nextUrl.pathname === '/admin/auth') {
+  // Izinkan akses ke halaman login admin
+  if (pathname === '/admin/auth') {
+    // Jika sudah login, redirect ke dashboard
     if (request.cookies.has('admin_session')) {
       return NextResponse.redirect(new URL('/admin', request.url));
+    }
+    return NextResponse.next();
+  }
+
+  // Proteksi route admin lainnya
+  if (pathname.startsWith('/admin')) {
+    // Cek rate limiting hanya untuk attempts ke login dan actions
+    if (pathname.includes('/auth') || pathname.includes('/api')) {
+      if (isRateLimited(ip)) {
+        return new NextResponse('Too Many Requests', {
+          status: 429,
+          headers: {
+            'Retry-After': '60',
+            'Content-Type': 'text/plain',
+          },
+        });
+      }
+    }
+
+    // Redirect ke login jika belum ada session
+    if (!request.cookies.has('admin_session')) {
+      const loginUrl = new URL('/admin/auth', request.url);
+      return NextResponse.redirect(loginUrl);
     }
   }
 
