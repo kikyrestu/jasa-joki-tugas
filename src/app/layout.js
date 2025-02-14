@@ -58,7 +58,7 @@ export const metadata = {
     telephone: false,
   },
   verification: {
-    google: "google-site-verification=YOUR_CODE", // Ganti dengan kode verifikasi Google Search Console
+    google: "google8366d1a87ce1c8d2",
   },
   openGraph: {
     title: "JogasTI - Jasa Joki Tugas #1 Terpercaya | Joki Tugas Kuliah",
