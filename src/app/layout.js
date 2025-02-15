@@ -23,6 +23,7 @@ export const metadata = {
   title: "JogasTI - Jasa Joki Tugas #1 Terpercaya | Joki Tugas Kuliah & Pemrograman",
   description: "JogasTI adalah layanan jasa joki tugas kuliah & pemrograman terpercaya dengan hasil berkualitas dan tepat waktu. ✓ Harga Terjangkau ✓ Revisi Gratis ✓ Privasi Terjamin ✓ Support 24/7",
   keywords: [
+    // Keyword Utama Joki Tugas
     "joki tugas",
     "jasa joki tugas",
     "joki tugas kuliah",
@@ -32,7 +33,18 @@ export const metadata = {
     "pengerjaan tugas kuliah",
     "jasa tugas online",
     "joki tugas terpercaya",
+    
+    // Keyword Skripsi & Akademik
     "jasa pengerjaan skripsi",
+    "joki skripsi",
+    "jasa skripsi",
+    "bimbingan skripsi online",
+    "joki tugas akhir",
+    "jasa tugas akhir",
+    "pengerjaan ta",
+    "jasa pengerjaan proposal",
+    
+    // Keyword Programming & Coding
     "joki ngoding",
     "jasa joki coding",
     "joki pemrograman",
@@ -41,13 +53,84 @@ export const metadata = {
     "jasa pembuatan website",
     "joki tugas coding",
     "jasa pembuatan aplikasi",
+    
+    // Keyword Bahasa Pemrograman
     "joki tugas python",
     "joki tugas java",
     "joki tugas javascript",
     "joki tugas php",
+    "joki tugas c++",
+    "joki tugas golang",
+    "joki tugas kotlin",
+    "joki tugas swift",
+    "joki tugas react",
+    "joki tugas laravel",
+    
+    // Keyword Framework & Database
     "jasa pemrograman web",
+    "joki database mysql",
+    "joki database postgresql",
+    "joki mongodb",
+    "joki firebase",
+    "joki react native",
+    "joki flutter",
+    "joki nodejs",
+    
+    // Keyword Project Spesifik
+    "joki project web",
+    "joki project android",
+    "joki project ios",
+    "joki project machine learning",
+    "joki project data science",
+    "joki project ai",
+    
+    // Keyword Mata Kuliah
+    "joki tugas algoritma",
+    "joki tugas struktur data",
+    "joki tugas basis data",
+    "joki tugas pbo",
+    "joki tugas mobile programming",
+    "joki tugas web programming",
+    "joki tugas data mining",
+    "joki tugas kecerdasan buatan",
+    
+    // Keyword Lokasi
+    "joki tugas jakarta",
+    "joki tugas bandung",
+    "joki tugas surabaya",
+    "joki tugas yogyakarta",
+    "joki tugas semarang",
+    "joki tugas malang",
+    "joki tugas medan",
+    "joki tugas makassar",
+    
+    // Keyword Universitas
+    "joki tugas ui",
+    "joki tugas ugm",
+    "joki tugas itb",
+    "joki tugas its",
+    "joki tugas unpad",
+    "joki tugas undip",
+    "joki tugas unair",
+    "joki tugas ub",
+    
+    // Keyword Trust & Quality
     "jasa coding terpercaya",
-    "joki program komputer"
+    "joki program komputer",
+    "jasa programming murah",
+    "joki tugas berkualitas",
+    "jasa tugas tepat waktu",
+    "joki tugas dijamin acc",
+    "jasa tugas anti plagiat",
+    "joki tugas garansi",
+    
+    // Long-tail Keywords
+    "jasa pengerjaan tugas kuliah programming",
+    "joki tugas pemrograman terpercaya",
+    "jasa pembuatan website profesional",
+    "joki tugas coding dijamin acc",
+    "jasa pengerjaan skripsi informatika",
+    "joki tugas programming murah berkualitas"
   ],
   authors: [{ name: "JogasTI" }],
   creator: "JogasTI",
