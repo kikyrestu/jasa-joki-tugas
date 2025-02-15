@@ -437,7 +437,7 @@ export default function Home() {
                     >
                       <path
                         fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.456 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
                         clipRule="evenodd"
                       />
                     </svg>
@@ -939,7 +939,7 @@ function getTechIcon(tech) {
     case 'bootstrap':
       return <svg className={iconClass} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
         <path fill="#7952b3" d="M26.667 0H5.334A5.334 5.334 0 0 0 0 5.334v21.332A5.334 5.334 0 0 0 5.334 32h21.333A5.334 5.334 0 0 0 32 26.666V5.334A5.334 5.334 0 0 0 26.667 0z"/>
-        <path fill="#fff" d="M22.256 14.168c.512-1.208.384-2.496-.384-3.456-.768-1.024-2.048-1.536-3.84-1.536h-7.04v13.632h7.04c1.792 0 3.072-.512 3.84-1.536.768-.96.896-2.24.384-3.456-.256-.576-.64-1.024-1.024-1.152-2.048-1.48-2.346zm-8.64-2.368h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768h-4.096v-3.072zm4.096 8.448h-4.096v-3.072h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768-2.048.768.768.768.768.768.768.768.768.768.768.768.768.768z"/>
+        <path fill="#fff" d="M22.256 14.168c.512-1.208.384-2.496-.384-3.456-.768-1.024-2.048-1.536-3.84-1.536h-7.04v13.632h7.04c1.792 0 3.072-.512 3.84-1.536.768-.96.896-2.24.384-3.456-.256-.576-.64-1.024-1.024-1.152-2.048-1.48-2.346zm-8.64-2.368h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768h-4.096v-3.072zm4.096 8.448h-4.096v-3.072h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768-2.048.768.768.768.768.768.768.768.768.768.768.768.768.768.768.768z"/>
       </svg>;
     case 'php':
       return <FaPhp className={`${iconClass} text-indigo-600`} />;
@@ -1006,7 +1006,7 @@ function getTechIcon(tech) {
       </svg>;
     case 'graphql':
       return <svg className={`${iconClass} text-pink-500`} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-        <path fill="currentColor" d="M16 2l13.856 8v12L16 30 2.144 22V10L16 2zm0 2.308L4.288 11.154v9.692L16 27.692l11.712-6.846v-9.692L16 4.308zm0 1.846l10.144 5.923v8.846L16 26.846l-10.144-5.923V12.077L16 6.154zM16 9.23l-7 4.077v7.384l7 4.077 7-4.077v-7.384L16 9.23z"/>
+        <path fill="currentColor" d="M16 2l13.856 8v12L16 30 2.144 22V10L16 2zm0 0v-8" />
       </svg>;
     case 'docker':
       return <FaDocker className={`${iconClass} text-blue-400`} />;
@@ -1020,3 +1020,75 @@ function getTechIcon(tech) {
       return <FaCode className={`${iconClass} text-amber-400`} />;
   }
 };
+
+const faqs = [
+  {
+    question: "Berapa lama proses pengerjaan?",
+    answer: "Waktu pengerjaan bervariasi tergantung kompleksitas tugas. Simple task 1-2 hari, medium 3-5 hari, complex 1 minggu atau lebih. Timeline detail akan diberikan setelah analisis tugas."
+  },
+  {
+    question: "Apakah bisa revisi?",
+    answer: "Ya, jumlah revisi disesuaikan dengan paket yang dipilih. Basic 1x revisi, Popular 3x revisi, Premium unlimited revisi selama masa pengerjaan."
+  },
+  {
+    question: "Apakah hasil dijamin original?",
+    answer: "Ya, kami menjamin hasil pengerjaan 100% original dan bebas plagiarisme. Setiap tugas dikerjakan dari nol sesuai requirement yang diberikan."
+  },
+  {
+    question: "Bagaimana sistem pembayaran?",
+    answer: "Pembayaran dilakukan dalam 2 tahap: 50% di awal (DP) dan 50% setelah tugas selesai. Pembayaran bisa via transfer bank atau e-wallet."
+  },
+  {
+    question: "Apakah ada garansi?",
+    answer: "Ya, kami memberikan garansi revisi sesuai paket yang dipilih. Jika hasil tidak sesuai dengan requirement, kami akan revisi sampai sesuai."
+  }
+];
+
+const socialLinks = [
+  {
+    icon: <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>,
+    url: 'https://wa.me/+62895329824943'
+  },
+  {
+    icon: <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.151 6.534c.732-.22 1.41-.22 2.139 0 .429.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768h-4.096v-3.072zm4.096 8.448h-4.096v-3.072h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768-2.048.768.768.768.768.768.768.768.768.768.768.768.768.768.768.768.768z"/>
+    </svg>,
+    url: 'https://instagram.com/jogasti'
+  }
+];
+
+const contacts = [
+  {
+    icon: <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.208-1.407L12 21.75 5.25 4.533a2.25 2.25 0 00-1.208-1.407v-1.371c0-.555.351-1.005.852-1.207.504L2.25 6.75zM12 12a.75.75 0 01.75.75v6a.75.75 0 01-1.5 0v-6a.75.75 0 01.75-.75z" />
+    </svg>,
+    label: 'WhatsApp',
+    value: '+62 895-3298-24943',
+    url: 'https://wa.me/+62895329824943'
+  },
+  {
+    icon: <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15A2.25 2.25 0 003 6.75m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3 12.077V6.75" />
+    </svg>,
+    label: 'Email',
+    value: 'kimpulrestu@gmail.com',
+    url: 'mailto:kimpulrestu@gmail.com'
+  }
+];
+
+const links = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Layanan', url: '/layanan' },
+  { name: 'Testimoni', url: '/testimoni' },
+  { name: 'FAQ', url: '/faq' }
+];
+
+const services = [
+  { id: 'programming', name: 'Joki Programming' },
+  { id: 'database', name: 'Joki Database' },
+  { id: 'web', name: 'Joki Web Development' },
+  { id: 'mobile', name: 'Joki Mobile App' },
+  { id: 'desktop', name: 'Joki Desktop App' }
+];
