@@ -93,8 +93,10 @@ export default function Home() {
             <div className="w-full lg:w-1/2">
               <AnimatedSection className="text-center lg:text-left">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-[var(--font-space)] bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-                  Stuck Ngoding? <br/>
-                  <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Santuy Aja!</span>
+                  <span className="bg-slate-900/95 px-4 py-2 rounded-xl">
+                    Stuck Ngoding? <br/>
+                    <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Santuy Aja!</span>
+                  </span>
                 </h1>
                 <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed font-[var(--font-poppins)]">
                   JogasTI siap bantuin lu beresin tugas programming, database, atau 

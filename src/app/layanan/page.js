@@ -10,7 +10,7 @@ export default function LayananPage() {
       {/* Hero Section */}
       <section className="py-20 dark-gradient relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-slate-900/80"></div>
+          <div className="absolute inset-0 bg-slate-900/90"></div>
           <div className="absolute top-20 left-40 w-72 h-72 bg-amber-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
           <div className="absolute top-40 right-40 w-72 h-72 bg-orange-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         </div>
@@ -66,7 +66,7 @@ export default function LayananPage() {
       {/* Deliverables Section */}
       <section className="py-20 dark-gradient relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-slate-900/80"></div>
+          <div className="absolute inset-0 bg-slate-900/90"></div>
           <div className="absolute bottom-20 left-40 w-72 h-72 bg-amber-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
           <div className="absolute top-40 right-20 w-72 h-72 bg-orange-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
         </div>
