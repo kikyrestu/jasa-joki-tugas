@@ -83,6 +83,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="py-20 dark-gradient relative overflow-hidden">
         <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-slate-900/80"></div>
           <div className="absolute top-20 left-10 md:left-40 w-72 h-72 bg-amber-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
           <div className="absolute top-40 right-10 md:right-40 w-72 h-72 bg-orange-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         </div>
@@ -150,7 +151,10 @@ export default function Home() {
 
       {/* Tech Stack */}
       <section className="py-20 dark-gradient relative overflow-hidden">
-        <div className="absolute inset-0 bg-circuit-pattern opacity-5"></div>
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-slate-900/80"></div>
+          <div className="absolute inset-0 bg-circuit-pattern opacity-5"></div>
+        </div>
         <div className="container mx-auto px-4 relative">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 font-[var(--font-space)] text-slate-100 flex items-center justify-center gap-4">
