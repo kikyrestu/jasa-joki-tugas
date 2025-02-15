@@ -81,28 +81,25 @@ export default function Home() {
       <ChatButton />
       <WhatsAppButton />
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center dark-gradient relative overflow-hidden pt-16">
-        {/* Animated background elements */}
+      <section className="py-20 dark-gradient relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-40 w-72 h-72 bg-amber-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-          <div className="absolute top-40 right-40 w-72 h-72 bg-orange-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-yellow-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+          <div className="absolute top-20 left-10 md:left-40 w-72 h-72 bg-amber-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+          <div className="absolute top-40 right-10 md:right-40 w-72 h-72 bg-orange-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="md:w-1/2">
-              <AnimatedSection className="text-center mb-16">
-                <h1 className="text-6xl md:text-8xl font-bold mb-8 font-[var(--font-space)] bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+            <div className="w-full lg:w-1/2">
+              <AnimatedSection className="text-center lg:text-left">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-[var(--font-space)] bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400">
                   Stuck Ngoding? <br/>
-                  <span className="text-5xl md:text-7xl">Santuy Aja! 
-                  </span>
+                  <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Santuy Aja!</span>
                 </h1>
-                <p className="text-xl text-slate-300 mb-10 leading-relaxed font-[var(--font-poppins)]">
+                <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed font-[var(--font-poppins)]">
                   JogasTI siap bantuin lu beresin tugas programming, database, atau 
                   project IT apapun. <span className="font-semibold text-amber-400">Auto ACC</span> dosen dijamin!
                 </p>
-                <div className="flex gap-6">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
                   <Link 
                     href="/layanan" 
                     className="group relative inline-flex items-center justify-center px-6 py-3 font-[var(--font-space)] text-base font-semibold tracking-wide text-white bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
@@ -130,7 +127,7 @@ export default function Home() {
               </AnimatedSection>
             </div>
             <motion.div 
-              className="md:w-1/2"
+              className="w-full lg:w-1/2"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -143,7 +140,7 @@ export default function Home() {
                   width={600}
                   height={600}
                   priority
-                  className="relative z-10 hover:scale-105 transition duration-500 object-contain"
+                  className="relative z-10 hover:scale-105 transition duration-500 w-full h-auto"
                 />
               </div>
             </motion.div>
@@ -152,24 +149,25 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 dark-section relative">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <section className="py-12 sm:py-20 dark-section">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {stats.map((stat, index) => (
-              <AnimatedSection
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center p-8 rounded-2xl glass-card"
+                className="glass-card p-4 sm:p-6 text-center"
               >
-                <div className="text-5xl font-bold font-[var(--font-space)] bg-gradient-to-br from-amber-400 to-orange-400 bg-clip-text text-transparent mb-3">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-amber-400 mb-2">
                   {stat.value}
                 </div>
-                <div className="text-slate-300 font-[var(--font-poppins)]">{stat.label}</div>
-              </AnimatedSection>
+                <div className="text-sm sm:text-base text-slate-300">
+                  {stat.label}
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -237,112 +235,115 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 dark-section relative">
+      <section className="py-12 sm:py-20 dark-section relative">
         <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-[var(--font-space)] text-slate-100 flex items-center justify-center gap-4">
-              Harga Bersahabat
-              <svg className="w-10 h-10 text-amber-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879-1.106-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+          <AnimatedSection className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 font-[var(--font-space)] text-slate-100">
+              Harga Jasa
             </h2>
-            <p className="text-xl text-slate-300 font-[var(--font-poppins)]">
-              Pilih paket yang cocok buat project lu!
+            <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-[var(--font-poppins)]">
+              Pilih paket sesuai kebutuhan kamu!
             </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {pricingPlans.map((plan, index) => (
-              <AnimatedSection
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 ${
-                  plan.featured
-                    ? 'bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-xl'
-                    : 'glass-card'
+                className={`glass-card p-6 sm:p-8 rounded-2xl relative ${
+                  plan.popular ? 'border-2 border-amber-400' : ''
                 }`}
               >
-                {plan.featured && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-600 to-orange-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                    Most Popular
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-gradient-to-r from-amber-400 to-orange-400 text-black px-4 py-1 rounded-full text-sm font-semibold">
+                      Popular
+                    </span>
                   </div>
                 )}
-                <h3 className="text-2xl font-bold mb-4 font-[var(--font-space)]">{plan.name}</h3>
-                <div className="text-4xl font-bold mb-6 font-[var(--font-space)]">
-                  {plan.price}
-                  <span className="text-base font-normal ml-2">/project</span>
+                <div className="text-center mb-6 sm:mb-8">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 font-[var(--font-space)] text-slate-100">
+                    {plan.name}
+                  </h3>
+                  <div className="text-3xl sm:text-4xl font-bold text-amber-400 mb-2">
+                    {plan.price}
+                  </div>
+                  <p className="text-slate-400 text-sm sm:text-base">{plan.description}</p>
                 </div>
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                   {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center font-[var(--font-poppins)]">
-                      <svg 
-                        className={`w-5 h-5 mr-3 ${plan.featured ? 'text-white' : 'text-amber-400'}`}
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    <li key={idx} className="flex items-center text-slate-300 text-base sm:text-lg">
+                      <svg className="w-5 h-5 text-amber-400 mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <button 
-                  className={`w-full py-4 rounded-xl font-[var(--font-space)] font-semibold text-lg transition-all duration-300 hover:scale-105 ${
-                    plan.featured
-                      ? 'bg-white text-amber-500 hover:bg-gray-50'
-                      : 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:from-amber-600 hover:to-orange-600'
-                  }`}>
+                <Link
+                  href={`/chat?plan=${plan.name}`}
+                  className={`w-full inline-flex items-center justify-center px-6 py-3 rounded-xl text-base sm:text-lg font-semibold transition-all duration-300 ${
+                    plan.popular
+                      ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:from-amber-600 hover:to-orange-600'
+                      : 'border-2 border-amber-400 text-amber-400 hover:bg-amber-400/10'
+                  }`}
+                >
                   Pilih Paket
-                </button>
-              </AnimatedSection>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Steps Section */}
-      <section className="py-20 dark-gradient">
-        <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-[var(--font-space)] text-slate-100 flex items-center justify-center gap-4">
+      <section className="py-12 sm:py-20 dark-gradient relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <AnimatedSection className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 font-[var(--font-space)] text-slate-100">
               Cara Order
-              <svg className="w-10 h-10 text-amber-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H9.25m4.125 0a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008h-.008v-.008z" />
-              </svg>
             </h2>
-            <p className="text-xl text-slate-300 font-[var(--font-poppins)]">
-              3 langkah simple buat mulai pake jasa kita!
+            <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-[var(--font-poppins)]">
+              Ikuti langkah-langkah berikut untuk order jasa kami
             </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto relative">
-            {/* Connecting lines */}
-            <div className="hidden md:block absolute top-1/2 left-1/4 right-1/4 h-0.5 bg-amber-500/20"></div>
-            
-            {steps.map((step, index) => (
-              <AnimatedSection
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="relative"
-              >
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center text-3xl font-bold text-white mx-auto mb-8 transform rotate-12 hover:rotate-0 transition-all duration-300 shadow-lg">
-                    {index + 1}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid gap-8 sm:gap-12">
+              {steps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative"
+                >
+                  {index !== steps.length - 1 && (
+                    <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-to-b from-amber-400 to-orange-400 hidden sm:block"></div>
+                  )}
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                    <div className="relative">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 flex items-center justify-center text-black text-2xl font-bold font-[var(--font-space)]">
+                        {index + 1}
+                      </div>
+                    </div>
+                    <div className="flex-1 text-center sm:text-left">
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 font-[var(--font-space)] text-slate-100">
+                        {step.title}
+                      </h3>
+                      <p className="text-base sm:text-lg text-slate-300 font-[var(--font-poppins)]">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 font-[var(--font-space)] text-slate-100">{step.title}</h3>
-                  <p className="text-slate-300 font-[var(--font-poppins)]">{step.description}</p>
-                </div>
-              </AnimatedSection>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -382,6 +383,179 @@ export default function Home() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <section className="py-12 sm:py-20 dark-section relative">
+        <div className="container mx-auto px-4">
+          <AnimatedSection className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 font-[var(--font-space)] text-slate-100">
+              Testimoni
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-[var(--font-poppins)]">
+              Apa kata mereka tentang jasa kami?
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="glass-card p-6 sm:p-8 rounded-2xl"
+              >
+                <div className="flex items-center gap-4 mb-4 sm:mb-6">
+                  <Image
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    width={48}
+                    height={48}
+                    className="rounded-full"
+                  />
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-semibold text-slate-100 font-[var(--font-space)]">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-sm sm:text-base text-slate-400 font-[var(--font-poppins)]">
+                      {testimonial.title}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-base sm:text-lg text-slate-300 font-[var(--font-poppins)]">
+                  {testimonial.content}
+                </p>
+                <div className="flex items-center gap-1 mt-4 text-amber-400">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className="w-5 h-5"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 sm:py-12 dark-section border-t border-slate-800">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+            <div>
+              <Link href="/" className="flex items-center gap-2 mb-4">
+                <Image
+                  src="/logo.png"
+                  alt="JogasTI Logo"
+                  width={40}
+                  height={40}
+                  className="rounded-lg"
+                />
+                <span className="text-2xl font-bold text-slate-100 font-[var(--font-space)]">
+                  JogasTI
+                </span>
+              </Link>
+              <p className="text-slate-300 text-base sm:text-lg mb-6 font-[var(--font-poppins)]">
+                Jasa pengerjaan tugas IT terpercaya dengan garansi revisi sampai ACC!
+              </p>
+              <div className="flex gap-4">
+                {socialLinks.map((social, index) => (
+                  <Link
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-amber-400 transition-colors duration-300"
+                  >
+                    {social.icon}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-slate-100 font-[var(--font-space)]">
+                Layanan
+              </h3>
+              <ul className="space-y-3">
+                {services.map((service, index) => (
+                  <li key={index}>
+                    <Link
+                      href={`/layanan#${service.id}`}
+                      className="text-slate-300 hover:text-amber-400 transition-colors duration-300 font-[var(--font-poppins)]"
+                    >
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-slate-100 font-[var(--font-space)]">
+                Tautan
+              </h3>
+              <ul className="space-y-3">
+                {links.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.url}
+                      className="text-slate-300 hover:text-amber-400 transition-colors duration-300 font-[var(--font-poppins)]"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-slate-100 font-[var(--font-space)]">
+                Kontak
+              </h3>
+              <ul className="space-y-3">
+                {contacts.map((contact, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-amber-400">
+                      {contact.icon}
+                    </div>
+                    <div>
+                      <div className="text-sm text-slate-400 font-[var(--font-poppins)]">
+                        {contact.label}
+                      </div>
+                      <Link
+                        href={contact.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-300 hover:text-amber-400 transition-colors duration-300 font-[var(--font-poppins)]"
+                      >
+                        {contact.value}
+                      </Link>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-800 text-center">
+            <p className="text-slate-400 text-sm sm:text-base font-[var(--font-poppins)]">
+              © {new Date().getFullYear()} JogasTI. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
@@ -765,7 +939,7 @@ function getTechIcon(tech) {
     case 'bootstrap':
       return <svg className={iconClass} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
         <path fill="#7952b3" d="M26.667 0H5.334A5.334 5.334 0 0 0 0 5.334v21.332A5.334 5.334 0 0 0 5.334 32h21.333A5.334 5.334 0 0 0 32 26.666V5.334A5.334 5.334 0 0 0 26.667 0z"/>
-        <path fill="#fff" d="M22.256 14.168c.512-1.208.384-2.496-.384-3.456-.768-1.024-2.048-1.536-3.84-1.536h-7.04v13.632h7.04c1.792 0 3.072-.512 3.84-1.536.768-.96.896-2.24.384-3.456-.256-.576-.64-1.024-1.152-1.152-2.048-1.48-2.346zm-8.64-2.368h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768h-4.096v-3.072zm4.096 8.448h-4.096v-3.072h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768-2.048.768.768.768.768.768.768.768.768.768z"/>
+        <path fill="#fff" d="M22.256 14.168c.512-1.208.384-2.496-.384-3.456-.768-1.024-2.048-1.536-3.84-1.536h-7.04v13.632h7.04c1.792 0 3.072-.512 3.84-1.536.768-.96.896-2.24.384-3.456-.256-.576-.64-1.024-1.024-1.152-2.048-1.48-2.346zm-8.64-2.368h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768h-4.096v-3.072zm4.096 8.448h-4.096v-3.072h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768-2.048.768.768.768.768.768.768.768.768.768.768.768.768.768z"/>
       </svg>;
     case 'php':
       return <FaPhp className={`${iconClass} text-indigo-600`} />;
@@ -783,7 +957,7 @@ function getTechIcon(tech) {
       return <FaPython className={`${iconClass} text-blue-500`} />;
     case 'django':
       return <svg className={`${iconClass} text-green-800`} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-        <path fill="currentColor" d="M14.135.043H20.4v23.324c-1.63.305-2.83.426-4.13.426-3.884 0-5.896-1.756-5.896-5.128 0-3.25 2.16-5.35 5.5-5.35.52 0 .914.04 1.26.16zm0 11.84c-.353-.118-.648-.157-1.02-.157-1.528 0-2.41 1.57-2.41 3.648 0 2.027.842 3.138 2.37 3.138 1.532 0 2.486-1.374 2.486-3.533 0-2.12-.974-3.533-2.466-3.533z"/>
+        <path fill="currentColor" d="M14.135.043H20.4v23.324c-1.63.305-2.83.426-4.13.426-3.884 0-5.896-1.756-5.896-5.128 0-3.25 2.16-5.35 5.5-5.35.52 0 .914.04 1.26.16zm0 11.84c-.353-.118-.648-.157-1.02-.157-1.528 0-2.41 1.57-2.41 3.648 0 2.027.842 3.138 2.37 3.138 1.532 0 2.486-1.374 2.486-4.2 0-2.12-.974-3.533-2.466-3.533z"/>
       </svg>;
     case 'flask':
       return <svg className={`${iconClass} text-gray-200`} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
