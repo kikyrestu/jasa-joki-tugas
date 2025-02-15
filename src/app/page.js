@@ -384,71 +384,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-12 sm:py-20 dark-section relative">
-        <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 font-[var(--font-space)] text-slate-100">
-              Testimoni
-            </h2>
-            <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-[var(--font-poppins)]">
-              Apa kata mereka tentang jasa kami?
-            </p>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card p-6 sm:p-8 rounded-2xl"
-              >
-                <div className="flex items-center gap-4 mb-4 sm:mb-6">
-                  <Image
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    width={48}
-                    height={48}
-                    className="rounded-full"
-                  />
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-slate-100 font-[var(--font-space)]">
-                      {testimonial.name}
-                    </h3>
-                    <p className="text-sm sm:text-base text-slate-400 font-[var(--font-poppins)]">
-                      {testimonial.title}
-                    </p>
-                  </div>
-                </div>
-                <p className="text-base sm:text-lg text-slate-300 font-[var(--font-poppins)]">
-                  {testimonial.content}
-                </p>
-                <div className="flex items-center gap-1 mt-4 text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-5 h-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.456 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="py-8 sm:py-12 dark-section border-t border-slate-800">
         <div className="container mx-auto px-4">
@@ -783,24 +718,6 @@ const features = [
   }
 ];
 
-const testimonials = [
-  {
-    text: "Gila sih! Project web gw yang ribet bgt bisa kelar cepet, struktur kodenya rapi, dosen sampe kagum! 🔥",
-    name: "Andi Pratama",
-    role: "Anak Informatika"
-  },
-  {
-    text: "Worth it banget! Tugas database yang bikin pusing langsung clear, plus diajarin sampe ngerti! 👍",
-    name: "Sarah Putri",
-    role: "Anak SI"
-  },
-  {
-    text: "The best sih! Tubes AI yang bikin stress langsung kelar, dokumentasinya lengkap pula! 🙏",
-    name: "Budi Santoso",
-    role: "Anak TI"
-  }
-];
-
 const webTechStack = [
   "HTML/CSS", "JavaScript", "TypeScript", "React.js", "Next.js", "Vue.js",
   "Angular", "Tailwind CSS", "Bootstrap", "PHP", "Laravel", "CodeIgniter"
@@ -850,7 +767,7 @@ const techCategories = [
       <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
     </svg>,
     title: "Mobile Development",
-    techs: ["Coming Soon! 🚀"],
+    techs: mobileTechStack,
     comingSoon: true
   },
   {
@@ -858,7 +775,7 @@ const techCategories = [
       <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
     </svg>,
     title: "Data & AI",
-    techs: ["Coming Soon! 🔬"],
+    techs: dataScienceTechStack,
     comingSoon: true
   }
 ];
@@ -939,7 +856,7 @@ function getTechIcon(tech) {
     case 'bootstrap':
       return <svg className={iconClass} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
         <path fill="#7952b3" d="M26.667 0H5.334A5.334 5.334 0 0 0 0 5.334v21.332A5.334 5.334 0 0 0 5.334 32h21.333A5.334 5.334 0 0 0 32 26.666V5.334A5.334 5.334 0 0 0 26.667 0z"/>
-        <path fill="#fff" d="M22.256 14.168c.512-1.208.384-2.496-.384-3.456-.768-1.024-2.048-1.536-3.84-1.536h-7.04v13.632h7.04c1.792 0 3.072-.512 3.84-1.536.768-.96.896-2.24.384-3.456-.256-.576-.64-1.024-1.024-1.152-2.048-1.48-2.346zm-8.64-2.368h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768h-4.096v-3.072zm4.096 8.448h-4.096v-3.072h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768-2.048.768.768.768.768.768.768.768.768.768.768.768.768.768.768.768z"/>
+        <path fill="#fff" d="M22.256 14.168c.512-1.208.384-2.496-.384-3.456-.768-1.024-2.048-1.536-3.84-1.536h-7.04v13.632h7.04c1.792 0 3.072-.512 3.84-1.536.768-.96.896-2.24.384-3.456-.256-.576-.64-1.024-1.024-1.152-2.048-1.48-2.346zm-8.64-2.368h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768h-4.096v-3.072zm4.096 8.448h-4.096v-3.072h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768-2.048.768.768.768.768.768.768.768.768.768.768.768.768.768.768.768.768.768z"/>
       </svg>;
     case 'php':
       return <FaPhp className={`${iconClass} text-indigo-600`} />;
@@ -1053,7 +970,7 @@ const socialLinks = [
   },
   {
     icon: <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.151 6.534c.732-.22 1.41-.22 2.139 0 .429.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768h-4.096v-3.072zm4.096 8.448h-4.096v-3.072h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768-2.048.768.768.768.768.768.768.768.768.768.768.768.768.768.768.768.768z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.151 6.534c.732-.22 1.41-.22 2.139 0 .429.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768h-4.096v-3.072zm4.096 8.448h-4.096v-3.072h4.096c1.024 0 1.792.256 2.048.768.256.512.256 1.024 0 1.536-.256.512-1.024.768-2.048.768-2.048.768.768.768.768.768.768.768.768.768.768.768.768.768.768.768.768.768z"/>
     </svg>,
     url: 'https://instagram.com/jogasti'
   }
@@ -1073,8 +990,8 @@ const contacts = [
       <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15A2.25 2.25 0 003 6.75m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3 12.077V6.75" />
     </svg>,
     label: 'Email',
-    value: 'kimpulrestu@gmail.com',
-    url: 'mailto:kimpulrestu@gmail.com'
+    value: 'kikyrestunov@gmail.com',
+    url: 'mailto:kikyrestunov@gmail.com'
   }
 ];
 
