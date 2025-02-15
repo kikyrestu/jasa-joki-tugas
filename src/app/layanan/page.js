@@ -21,7 +21,7 @@ export default function LayananPage() {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-[var(--font-space)] bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-[var(--font-space)] bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
               Jasa Joki Tugas
             </h1>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto font-[var(--font-poppins)]">
@@ -94,7 +94,7 @@ export default function LayananPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="glass-card p-6 rounded-2xl hover:scale-105 transition-all duration-300"
               >
-                <div className="text-amber-400 text-3xl mb-4">
+                <div className="text-amber-400 text-3xl mb-4 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-2 font-[var(--font-space)] text-slate-100">
@@ -136,7 +136,7 @@ export default function LayananPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-slate-800/50 p-6 rounded-2xl border border-amber-500/20 hover:border-amber-400/50 transition-all duration-300"
               >
-                <div className="text-amber-400 text-2xl mb-4">
+                <div className="text-amber-400 text-2xl mb-4 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                   {point.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-2 font-[var(--font-space)] text-slate-100">

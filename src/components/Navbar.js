@@ -10,7 +10,7 @@ export default function Navbar() {
             href="/" 
             className="relative group"
           >
-            <span className="font-[var(--font-space)] text-3xl font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent group-hover:from-amber-300 group-hover:to-orange-300 transition-all duration-300">
+            <span className="font-[var(--font-space)] text-3xl font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent group-hover:from-amber-300 group-hover:to-orange-300 transition-all duration-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
               JogasTI
             </span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-400 group-hover:w-full transition-all duration-300"></span>

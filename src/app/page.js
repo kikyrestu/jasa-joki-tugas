@@ -91,7 +91,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
             <div className="w-full lg:w-1/2">
               <AnimatedSection className="text-center lg:text-left">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-[var(--font-space)] bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-[var(--font-space)] bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                   Stuck Ngoding? <br/>
                   <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Santuy Aja!</span>
                 </h1>
@@ -223,7 +223,7 @@ export default function Home() {
                         {category.techs.map((tech, index) => (
                           <span
                             key={index}
-                            className="px-4 py-2 bg-slate-800/80 text-amber-400 rounded-xl font-medium text-sm border border-amber-500/20 hover:border-amber-400/50 transition-all duration-300 hover:scale-105 hover:bg-slate-800 cursor-pointer shadow-lg flex items-center gap-2"
+                            className="px-4 py-2 bg-slate-800/90 text-amber-400 rounded-xl font-medium text-sm border border-amber-500/20 hover:border-amber-400/50 transition-all duration-300 hover:scale-105 hover:bg-slate-800 cursor-pointer shadow-lg backdrop-blur-sm flex items-center gap-2"
                           >
                             {getTechIcon(tech)}
                             {tech}
@@ -672,7 +672,7 @@ const ChatButton = () => {
                       key={msg.id} 
                       className={`flex flex-col space-y-1 animate-fade-in ${msg.isBot ? 'opacity-80' : ''}`}
                     >
-                      <span className={`text-xs font-semibold ${msg.isBot ? 'text-green-400' : 'text-amber-400'}`}>
+                      <span className={`text-xs font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] ${msg.isBot ? 'text-green-400' : 'text-amber-400'}`}>
                         {msg.name}
                       </span>
                       <div className={`p-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800 transition-colors ${

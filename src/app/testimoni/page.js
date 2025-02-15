@@ -233,7 +233,7 @@ export default function TestimoniPage() {
             transition={{ duration: 0.5 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 font-[var(--font-space)] bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 font-[var(--font-space)] bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
               Client Stories ✨
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 mb-8 font-[var(--font-poppins)]">
@@ -260,7 +260,7 @@ export default function TestimoniPage() {
               transition={{ duration: 0.5 }}
               className="glass-card p-4 text-center"
             >
-              <div className="text-2xl sm:text-3xl font-bold text-amber-400 mb-2">
+              <div className="text-2xl sm:text-3xl font-bold text-amber-400 mb-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                 {testimonials.length}+
               </div>
               <div className="text-sm sm:text-base text-slate-300">
@@ -274,7 +274,7 @@ export default function TestimoniPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="glass-card p-4 text-center"
             >
-              <div className="text-2xl sm:text-3xl font-bold text-amber-400 mb-2">
+              <div className="text-2xl sm:text-3xl font-bold text-amber-400 mb-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                 4.9
               </div>
               <div className="text-sm sm:text-base text-slate-300">
@@ -288,7 +288,7 @@ export default function TestimoniPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="glass-card p-4 text-center"
             >
-              <div className="text-2xl sm:text-3xl font-bold text-amber-400 mb-2">
+              <div className="text-2xl sm:text-3xl font-bold text-amber-400 mb-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                 100%
               </div>
               <div className="text-sm sm:text-base text-slate-300">
@@ -302,7 +302,7 @@ export default function TestimoniPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="glass-card p-4 text-center"
             >
-              <div className="text-2xl sm:text-3xl font-bold text-amber-400 mb-2">
+              <div className="text-2xl sm:text-3xl font-bold text-amber-400 mb-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                 24/7
               </div>
               <div className="text-sm sm:text-base text-slate-300">
@@ -347,7 +347,7 @@ export default function TestimoniPage() {
                             <span>•</span>
                             <span className="flex items-center gap-0.5">
                               {[...Array(testimonial.rating)].map((_, i) => (
-                                <FaStar key={i} className="text-amber-400 w-2.5 h-2.5" />
+                                <FaStar key={i} className="text-amber-400 w-2.5 h-2.5 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" />
                               ))}
                             </span>
                           </div>
