@@ -148,31 +148,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 sm:py-20 dark-section">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card p-4 sm:p-6 text-center"
-              >
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-amber-400 mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm sm:text-base text-slate-300">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Tech Stack */}
       <section className="py-20 dark-gradient relative overflow-hidden">
         <div className="absolute inset-0 bg-circuit-pattern opacity-5"></div>
@@ -753,24 +728,6 @@ const dataScienceTechStack = [
   "Python", "R", "TensorFlow", "PyTorch", "Scikit-learn",
   "Pandas", "NumPy", "Machine Learning", "Data Mining",
   "Computer Vision", "NLP"
-];
-
-const stats = [
-  {
-    title: "Web Development",
-    value: "Full Stack",
-    description: "HTML, CSS, JavaScript, React, Next.js, Node.js, Express, MongoDB"
-  },
-  {
-    title: "Mobile Development",
-    value: "Coming Soon",
-    description: "Stay tuned for our mobile development services"
-  },
-  {
-    title: "Data & AI",
-    value: "Coming Soon", 
-    description: "Stay tuned for our data science & AI services"
-  }
 ];
 
 const techCategories = [
