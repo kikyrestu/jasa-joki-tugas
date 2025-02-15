@@ -197,31 +197,46 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: idx * 0.1 }}
-                className="relative group"
+                className={`relative group ${!category.isAvailable ? 'opacity-75' : ''}`}
               >
                 {/* Card Header */}
                 <div className="glass-card p-6 mb-4 rounded-2xl flex items-center gap-4 transition-all duration-300 group-hover:translate-y-2">
                   {category.icon}
-                  <h3 className="text-2xl font-bold font-[var(--font-space)] text-slate-100">
-                    {category.title}
-                  </h3>
+                  <div className="flex flex-col">
+                    <h3 className="text-2xl font-bold font-[var(--font-space)] text-slate-100">
+                      {category.title}
+                    </h3>
+                    {!category.isAvailable && (
+                      <span className="text-sm text-amber-400 font-medium mt-1">
+                        {category.comingSoonLabel}
+                      </span>
+                    )}
+                  </div>
                 </div>
                 
                 {/* Tech Pills Container */}
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-orange-500/10 rounded-2xl blur-xl"></div>
                   <div className="relative glass-card p-6 rounded-2xl">
-                    <div className="flex flex-wrap gap-3">
-                      {category.techs.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="px-4 py-2 bg-slate-800/80 text-amber-400 rounded-xl font-medium text-sm border border-amber-500/20 hover:border-amber-400/50 transition-all duration-300 hover:scale-105 hover:bg-slate-800 cursor-pointer shadow-lg flex items-center gap-2"
-                        >
-                          {getTechIcon(tech)}
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                    {category.isAvailable ? (
+                      <div className="flex flex-wrap gap-3">
+                        {category.techs.map((tech, index) => (
+                          <span
+                            key={index}
+                            className="px-4 py-2 bg-slate-800/80 text-amber-400 rounded-xl font-medium text-sm border border-amber-500/20 hover:border-amber-400/50 transition-all duration-300 hover:scale-105 hover:bg-slate-800 cursor-pointer shadow-lg flex items-center gap-2"
+                          >
+                            {getTechIcon(tech)}
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="text-center py-8">
+                        <p className="text-slate-400 text-sm">
+                          This service will be available soon. Stay tuned!
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </AnimatedSection>
@@ -741,10 +756,21 @@ const dataScienceTechStack = [
 ];
 
 const stats = [
-  { value: "500+", label: "Project Selesai" },
-  { value: "100%", label: "Satisfaction Rate" },
-  { value: "50+", label: "Expert Developers" },
-  { value: "24/7", label: "Support" }
+  {
+    title: "Web Development",
+    value: "Full Stack",
+    description: "HTML, CSS, JavaScript, React, Next.js, Node.js, Express, MongoDB"
+  },
+  {
+    title: "Mobile Development",
+    value: "Coming Soon",
+    description: "Stay tuned for our mobile development services"
+  },
+  {
+    title: "Data & AI",
+    value: "Coming Soon", 
+    description: "Stay tuned for our data science & AI services"
+  }
 ];
 
 const techCategories = [
@@ -753,14 +779,16 @@ const techCategories = [
       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
     </svg>,
     title: "Programming & Web",
-    techs: webTechStack
+    techs: webTechStack,
+    isAvailable: true
   },
   {
     icon: <svg className="w-8 h-8 text-amber-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
     </svg>,
     title: "Database & Backend",
-    techs: backendTechStack
+    techs: backendTechStack,
+    isAvailable: true
   },
   {
     icon: <svg className="w-8 h-8 text-amber-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -768,7 +796,8 @@ const techCategories = [
     </svg>,
     title: "Mobile Development",
     techs: mobileTechStack,
-    comingSoon: true
+    isAvailable: false,
+    comingSoonLabel: "Coming Soon!"
   },
   {
     icon: <svg className="w-8 h-8 text-amber-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -776,7 +805,8 @@ const techCategories = [
     </svg>,
     title: "Data & AI",
     techs: dataScienceTechStack,
-    comingSoon: true
+    isAvailable: false,
+    comingSoonLabel: "Coming Soon!"
   }
 ];
 
